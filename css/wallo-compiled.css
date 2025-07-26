@@ -1700,6 +1700,53 @@ textarea {
   color: #6C757D;
 }
 
+.pricing {
+  background: linear-gradient(135deg, rgba(108, 92, 231, 0.03) 0%, rgba(108, 92, 231, 0.08) 100%);
+}
+.pricing .card-custom {
+  transition: all all 0.3s ease;
+}
+.pricing .card-custom:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(108, 92, 231, 0.15);
+}
+.pricing .card-custom.border-primary {
+  border: 2px solid #6C5CE7 !important;
+  transform: translateY(-10px);
+}
+.pricing .card-custom.border-primary:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 20px 40px rgba(108, 92, 231, 0.15);
+}
+.pricing .display-4 {
+  font-size: 2.5rem;
+}
+@media (max-width: 575px) {
+  .pricing .display-4 {
+    font-size: 2rem;
+  }
+}
+.pricing .badge {
+  font-size: 0.875rem;
+  border-radius: 20px;
+}
+.pricing ul li {
+  padding: 0.25rem 0;
+  font-size: 0.95rem;
+}
+@media (max-width: 575px) {
+  .pricing ul li {
+    font-size: 0.9rem;
+  }
+}
+.pricing .btn {
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+}
+.pricing .btn.btn-outline-primary:hover {
+  transform: translateY(-1px);
+}
+
 @keyframes fadeInUp {
   from {
     opacity: 0;

@@ -249,3 +249,60 @@
     }
   }
 }
+
+// Estilos específicos para pricing section
+.pricing {
+  background: linear-gradient(135deg, rgba($primary, 0.03) 0%, rgba($primary, 0.08) 100%);
+  
+  .card-custom {
+    transition: all $transition-base;
+    
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: $shadow-lg;
+    }
+    
+    &.border-primary {
+      border: 2px solid $primary !important;
+      transform: translateY(-10px);
+      
+      &:hover {
+        transform: translateY(-15px);
+        box-shadow: $shadow-2xl;
+      }
+    }
+  }
+  
+  .display-4 {
+    font-size: 2.5rem;
+    
+    @include respond-to-max(sm) {
+      font-size: 2rem;
+    }
+  }
+  
+  .badge {
+    font-size: 0.875rem;
+    border-radius: 20px;
+  }
+  
+  ul {
+    li {
+      padding: 0.25rem 0;
+      font-size: 0.95rem;
+      
+      @include respond-to-max(sm) {
+        font-size: 0.9rem;
+      }
+    }
+  }
+  
+  .btn {
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    
+    &.btn-outline-primary:hover {
+      transform: translateY(-1px);
+    }
+  }
+}
