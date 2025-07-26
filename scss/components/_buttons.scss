@@ -1,0 +1,115 @@
+// ================================
+// COMPONENTS - BUTTONS
+// ================================
+
+/* Base button styles */
+.btn {
+  @include button-base;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-sm;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: $font-weight-medium;
+  line-height: 1;
+  
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+  }
+}
+
+/* Button variants */
+.btn-primary {
+  @include button-variant($primary, white);
+  
+  &:hover:not(:disabled) {
+    background-color: $primary-dark;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba($primary, 0.3);
+  }
+}
+
+.btn-secondary {
+  @include button-variant($bg-card, $text);
+  border: 1px solid $border-light;
+  
+  &:hover:not(:disabled) {
+    background-color: $bg-light;
+    border-color: $primary;
+    color: $primary;
+  }
+}
+
+.btn-outline {
+  @include button-variant(transparent, $primary);
+  border: 2px solid $primary;
+  
+  &:hover:not(:disabled) {
+    background-color: $primary;
+    color: white;
+  }
+}
+
+.btn-ghost {
+  @include button-variant(transparent, $text-light);
+  
+  &:hover:not(:disabled) {
+    background-color: rgba($primary, 0.1);
+    color: $primary;
+  }
+}
+
+/* Button sizes */
+.btn-sm {
+  @include button-size($spacing-sm, $spacing-md, $font-size-sm);
+}
+
+.btn-md {
+  @include button-size($spacing-md, $spacing-lg, $font-size-base);
+}
+
+.btn-lg {
+  @include button-size($spacing-lg, $spacing-xl, $font-size-lg);
+}
+
+/* Full width button */
+.btn-block {
+  width: 100%;
+  display: flex;
+}
+
+/* Button group */
+.btn-group {
+  display: flex;
+  gap: $spacing-sm;
+  
+  @include respond-to-max(sm) {
+    flex-direction: column;
+    
+    .btn {
+      width: 100%;
+    }
+  }
+}
+
+/* Floating action button */
+.btn-fab {
+  @include flex-center;
+  width: 56px;
+  height: 56px;
+  border-radius: $border-radius-full;
+  position: fixed;
+  bottom: $spacing-xl;
+  right: $spacing-xl;
+  z-index: 1000;
+  box-shadow: $shadow-lg;
+  
+  &:hover {
+    transform: scale(1.1);
+  }
+}

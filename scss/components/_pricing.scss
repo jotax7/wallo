@@ -1,0 +1,251 @@
+// ================================
+// PAGES - HOME - PRICING SECTION
+// ================================
+
+/* Pricing section específica del home */
+.pricing-section {
+  background-color: $bg-light;
+  
+  .section-title {
+    text-align: center;
+    margin-bottom: $spacing-4xl;
+    
+    h2 {
+      color: $text;
+      margin-bottom: $spacing-md;
+    }
+    
+    p {
+      color: $text-light;
+      font-size: $font-size-lg;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+  }
+  
+  .pricing-grid {
+    display: grid;
+    gap: $spacing-xl;
+    justify-content: center;
+    
+    @include respond-to(md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @include respond-to(lg) {
+      grid-template-columns: repeat(3, 1fr);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+  }
+  
+  .pricing-card {
+    background-color: $bg-card;
+    border-radius: $border-radius-xl;
+    padding: $spacing-2xl;
+    text-align: center;
+    height: 100%;
+    transition: $transition-slow;
+    border: 2px solid $border-light;
+    position: relative;
+    overflow: hidden;
+    
+    &:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba($primary, 0.15);
+      border-color: $primary;
+    }
+    
+    &.featured {
+      border-color: $primary;
+      transform: scale(1.05);
+      
+      &::before {
+        content: "MÁS POPULAR";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(135deg, $primary, $primary-light);
+        color: white;
+        padding: $spacing-sm;
+        font-size: $font-size-sm;
+        font-weight: $font-weight-medium;
+        letter-spacing: 1px;
+      }
+    }
+    
+    .pricing-badge {
+      background: linear-gradient(135deg, $primary, $primary-light);
+      color: white;
+      padding: $spacing-sm $spacing-md;
+      border-radius: $border-radius-full;
+      font-size: $font-size-sm;
+      font-weight: $font-weight-medium;
+      margin-bottom: $spacing-lg;
+      display: inline-block;
+    }
+    
+    .pricing-title {
+      font-size: $font-size-xl;
+      font-weight: $font-weight-bold;
+      margin-bottom: $spacing-md;
+      color: $text;
+    }
+    
+    .pricing-price {
+      font-size: $font-size-hero;
+      font-weight: $font-weight-bold;
+      color: $primary;
+      margin-bottom: $spacing-sm;
+    }
+    
+    .pricing-period {
+      color: $text-light;
+      font-size: $font-size-base;
+      margin-bottom: $spacing-xl;
+    }
+    
+    .pricing-features {
+      list-style: none;
+      padding: 0;
+      margin: $spacing-xl 0;
+      
+      li {
+        padding: $spacing-sm 0;
+        color: $text;
+        position: relative;
+        padding-left: $spacing-xl;
+        text-align: left;
+        
+        &::before {
+          content: "✓";
+          position: absolute;
+          left: 0;
+          color: $success;
+          font-weight: $font-weight-bold;
+          font-size: $font-size-lg;
+        }
+        
+        &.disabled {
+          color: $text-light;
+          opacity: 0.6;
+          
+          &::before {
+            content: "✗";
+            color: $error;
+          }
+        }
+      }
+    }
+    
+    .pricing-btn {
+      width: 100%;
+      padding: $spacing-md $spacing-xl;
+      font-weight: $font-weight-medium;
+      border-radius: $border-radius-md;
+      text-decoration: none;
+      transition: $transition-base;
+      display: inline-block;
+      margin-top: $spacing-md;
+      
+      &.primary {
+        background: linear-gradient(135deg, $primary, $primary-light);
+        color: white;
+        border: none;
+        
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 8px 20px rgba($primary, 0.3);
+          color: white;
+          text-decoration: none;
+        }
+      }
+      
+      &.secondary {
+        background-color: transparent;
+        border: 2px solid $primary;
+        color: $primary;
+        
+        &:hover {
+          background-color: $primary;
+          color: white;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+/* Testimonials específicos del home */
+.testimonials-section {
+  background-color: $bg-card;
+  
+  .section-title {
+    text-align: center;
+    margin-bottom: $spacing-4xl;
+    
+    h2 {
+      color: $text;
+      margin-bottom: $spacing-md;
+    }
+    
+    p {
+      color: $text-light;
+      font-size: $font-size-lg;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+  }
+  
+  .testimonials-grid {
+    @extend .auto-grid;
+  }
+  
+  .testimonial-card {
+    background-color: $bg-card;
+    border-radius: $border-radius-lg;
+    padding: $spacing-xl;
+    box-shadow: $shadow-md;
+    text-align: center;
+    height: 100%;
+    transition: $transition-base;
+    border: 1px solid $border-light;
+    
+    &:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 35px rgba($primary, 0.15);
+    }
+    
+    .testimonial-avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: $border-radius-full;
+      margin: 0 auto $spacing-lg;
+      background: linear-gradient(135deg, $primary, $primary-light);
+      @include flex-center;
+      color: white;
+      font-size: $font-size-xl;
+      font-weight: $font-weight-bold;
+    }
+    
+    .testimonial-text {
+      font-size: $font-size-lg;
+      line-height: $line-height-loose;
+      color: $text-light;
+      margin-bottom: $spacing-lg;
+      font-style: italic;
+    }
+    
+    .testimonial-author {
+      font-weight: $font-weight-medium;
+      color: $text;
+      margin-bottom: $spacing-xs;
+    }
+    
+    .testimonial-role {
+      font-size: $font-size-sm;
+      color: $text-light;
+    }
+  }
+}

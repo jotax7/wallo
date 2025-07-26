@@ -1,0 +1,192 @@
+// ================================
+// PAGES - OPINIONES / TESTIMONIALS
+// ================================
+
+.opiniones-page {
+  .page-hero {
+    @extend .hero;
+    background: linear-gradient(135deg, rgba($warning, 0.05) 0%, rgba($warning, 0.1) 100%);
+    
+    h1 {
+      color: $text;
+      margin-bottom: $spacing-lg;
+    }
+    
+    .hero-subtitle {
+      font-size: $font-size-xl;
+      color: $text-light;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+  }
+  
+  .testimonials-section {
+    .section-header {
+      text-align: center;
+      margin-bottom: $spacing-4xl;
+      
+      h2 {
+        color: $text;
+        margin-bottom: $spacing-md;
+      }
+      
+      p {
+        color: $text-light;
+        font-size: $font-size-lg;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+    }
+    
+    .testimonials-grid {
+      @extend .auto-grid;
+      margin-bottom: $spacing-4xl;
+    }
+    
+    .testimonial-card {
+      @extend .card-testimonial;
+      
+      &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 35px rgba($warning, 0.15);
+      }
+      
+      .testimonial-avatar {
+        width: 80px;
+        height: 80px;
+        border-radius: $border-radius-full;
+        background: linear-gradient(135deg, $warning 0%, lighten($warning, 10%) 100%);
+        color: white;
+        @include flex-center;
+        font-size: $font-size-xl;
+        font-weight: $font-weight-bold;
+        margin: 0 auto $spacing-lg;
+      }
+      
+      .testimonial-content {
+        text-align: center;
+        
+        .testimonial-quote {
+          font-size: $font-size-lg;
+          line-height: $line-height-loose;
+          color: $text;
+          font-style: italic;
+          margin-bottom: $spacing-lg;
+          position: relative;
+          
+          &::before,
+          &::after {
+            content: '"';
+            font-size: $font-size-2xl;
+            color: $warning;
+            opacity: 0.6;
+            position: absolute;
+          }
+          
+          &::before {
+            top: -10px;
+            left: -20px;
+          }
+          
+          &::after {
+            bottom: -30px;
+            right: -20px;
+          }
+        }
+        
+        .testimonial-author {
+          .author-name {
+            font-weight: $font-weight-bold;
+            color: $text;
+            margin-bottom: $spacing-xs;
+          }
+          
+          .author-role {
+            color: $text-light;
+            font-size: $font-size-sm;
+            margin-bottom: $spacing-xs;
+          }
+          
+          .author-company {
+            color: $warning;
+            font-size: $font-size-sm;
+            font-weight: $font-weight-medium;
+          }
+        }
+      }
+    }
+  }
+  
+  .ratings-section {
+    background-color: $bg-light;
+    
+    .section-header {
+      text-align: center;
+      margin-bottom: $spacing-4xl;
+      
+      h2 {
+        color: $text;
+        margin-bottom: $spacing-md;
+      }
+    }
+    
+    .ratings-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: $spacing-xl;
+      max-width: 800px;
+      margin: 0 auto;
+      
+      @include respond-to(md) {
+        grid-template-columns: repeat(4, 1fr);
+      }
+      
+      .rating-item {
+        text-align: center;
+        background-color: $bg-card;
+        padding: $spacing-xl;
+        border-radius: $border-radius-lg;
+        box-shadow: $shadow-sm;
+        
+        .rating-stars {
+          font-size: $font-size-xl;
+          color: $warning;
+          margin-bottom: $spacing-sm;
+        }
+        
+        .rating-score {
+          font-size: $font-size-2xl;
+          font-weight: $font-weight-bold;
+          color: $text;
+          margin-bottom: $spacing-xs;
+        }
+        
+        .rating-label {
+          font-size: $font-size-sm;
+          color: $text-light;
+        }
+      }
+    }
+  }
+  
+  .social-proof {
+    .social-logos {
+      @include flex-center;
+      gap: $spacing-2xl;
+      flex-wrap: wrap;
+      opacity: 0.6;
+      
+      .logo-item {
+        font-size: $font-size-2xl;
+        color: $text-light;
+        filter: grayscale(100%);
+        transition: all 0.3s ease;
+        
+        &:hover {
+          filter: grayscale(0%);
+          opacity: 1;
+        }
+      }
+    }
+  }
+}

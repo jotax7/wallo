@@ -1,0 +1,173 @@
+// ================================
+// PAGES - FUNCIONES
+// ================================
+
+.funciones-page {
+  .page-hero {
+    @extend .hero;
+    background: linear-gradient(135deg, rgba($success, 0.05) 0%, rgba($success, 0.1) 100%);
+    
+    h1 {
+      color: $text;
+      margin-bottom: $spacing-lg;
+    }
+    
+    .hero-subtitle {
+      font-size: $font-size-xl;
+      color: $text-light;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+  }
+  
+  .funciones-grid {
+    @extend .auto-grid;
+    margin-bottom: $spacing-4xl;
+  }
+  
+  .funcion-card {
+    @extend .card-feature;
+    border: 1px solid $border-light;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      border-color: $success;
+      transform: translateY(-4px);
+      box-shadow: 0 8px 25px rgba($success, 0.15);
+    }
+    
+    .funcion-icon {
+      font-size: $font-size-hero;
+      margin-bottom: $spacing-lg;
+      color: $success;
+      display: block;
+    }
+    
+    .funcion-title {
+      color: $text;
+      font-size: $font-size-xl;
+      font-weight: $font-weight-bold;
+      margin-bottom: $spacing-md;
+    }
+    
+    .funcion-description {
+      color: $text-light;
+      line-height: $line-height-loose;
+      margin-bottom: $spacing-lg;
+    }
+    
+    .funcion-features {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      
+      li {
+        display: flex;
+        align-items: center;
+        gap: $spacing-sm;
+        margin-bottom: $spacing-sm;
+        font-size: $font-size-sm;
+        color: $text-light;
+        
+        &::before {
+          content: '✓';
+          color: $success;
+          font-weight: $font-weight-bold;
+          font-size: $font-size-base;
+        }
+      }
+    }
+  }
+  
+  .funciones-destacadas {
+    background-color: $bg-light;
+    
+    .section-header {
+      text-align: center;
+      margin-bottom: $spacing-4xl;
+      
+      h2 {
+        color: $text;
+        margin-bottom: $spacing-md;
+      }
+      
+      p {
+        color: $text-light;
+        font-size: $font-size-lg;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+    }
+    
+    .destacadas-grid {
+      display: grid;
+      gap: $spacing-2xl;
+      
+      @include respond-to(lg) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    .destacada-item {
+      background-color: $bg-card;
+      padding: $spacing-2xl;
+      border-radius: $border-radius-lg;
+      box-shadow: $shadow-sm;
+      
+      .destacada-header {
+        display: flex;
+        align-items: center;
+        gap: $spacing-lg;
+        margin-bottom: $spacing-lg;
+        
+        .destacada-icon {
+          flex: 0 0 auto;
+          font-size: $font-size-2xl;
+          background: linear-gradient(135deg, $success 0%, lighten($success, 10%) 100%);
+          color: white;
+          width: 60px;
+          height: 60px;
+          border-radius: $border-radius-lg;
+          @include flex-center;
+        }
+        
+        .destacada-title {
+          flex: 1;
+          margin: 0;
+          color: $text;
+          font-size: $font-size-xl;
+        }
+      }
+      
+      .destacada-content {
+        p {
+          color: $text-light;
+          line-height: $line-height-loose;
+          margin-bottom: $spacing-md;
+        }
+        
+        .destacada-benefits {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          
+          li {
+            display: flex;
+            align-items: flex-start;
+            gap: $spacing-sm;
+            margin-bottom: $spacing-sm;
+            font-size: $font-size-sm;
+            color: $text-light;
+            
+            &::before {
+              content: '→';
+              color: $success;
+              font-weight: $font-weight-bold;
+              margin-top: 2px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

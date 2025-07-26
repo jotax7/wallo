@@ -1,0 +1,17 @@
+{
+  "name": "wallo-landing",
+  "version": "1.0.0",
+  "description": "Landing page profesional para Wallo - Primera wallet social cripto",
+  "scripts": {
+    "build-css": "sass scss/main.scss css/main.css --style=expanded",
+    "watch-css": "sass scss/main.scss css/main.css --style=expanded --watch",
+    "build-css-prod": "sass scss/main.scss css/main.css --style=compressed --no-source-map",
+    "dev": "npm run watch-css"
+  },
+  "devDependencies": {
+    "sass": "^1.89.2"
+  },
+  "keywords": ["landing-page", "sass", "bootstrap", "responsive", "crypto", "wallo"],
+  "author": "Joaquin Shaw",
+  "license": "MIT"
+}

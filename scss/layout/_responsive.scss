@@ -1,0 +1,290 @@
+// ================================
+// RESPONSIVE ENHANCEMENTS - WALLO
+// ================================
+
+// HERO SECTION RESPONSIVE
+.hero {
+  padding: 6rem 0 4rem;
+  text-align: center;
+  
+  @include respond-to-max(lg) {
+    padding: 5rem 0 3rem;
+  }
+  
+  @include respond-to-max(md) {
+    padding: 4rem 0 2rem;
+    text-align: left;
+  }
+  
+  @include respond-to-max(sm) {
+    padding: 3rem 0 2rem;
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    
+    @include respond-to-max(lg) {
+      font-size: 2.5rem;
+    }
+    
+    @include respond-to-max(md) {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    @include respond-to-max(sm) {
+      font-size: 1.75rem;
+      line-height: 1.3;
+    }
+  }
+  
+  p {
+    font-size: 1.2rem;
+    color: $text-light;
+    margin-bottom: 2rem;
+    
+    @include respond-to-max(md) {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    @include respond-to-max(sm) {
+      font-size: 1rem;
+    }
+  }
+  
+  // Hero image responsivo
+  .img-fluid {
+    @include respond-to-max(lg) {
+      max-width: 400px;
+    }
+    
+    @include respond-to-max(md) {
+      max-width: 350px;
+      margin-top: 2rem;
+    }
+    
+    @include respond-to-max(sm) {
+      max-width: 100%;
+      margin-top: 1.5rem;
+    }
+  }
+}
+
+// CARDS RESPONSIVE
+.card-custom {
+  background-color: $bg-card;
+  border: 1px solid $border-light;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: $shadow-sm;
+  height: 100%;
+  transition: $transition-base;
+  
+  @include respond-to-max(md) {
+    padding: 1.5rem;
+  }
+  
+  @include respond-to-max(sm) {
+    padding: 1.25rem;
+  }
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-md;
+  }
+  
+  // Imágenes dentro de cards
+  img {
+    transition: $transition-base;
+    
+    @include respond-to-max(sm) {
+      width: 60px !important;
+      height: 60px !important;
+    }
+  }
+  
+  h4, h5 {
+    @include respond-to-max(sm) {
+      font-size: 1.1rem;
+    }
+  }
+  
+  p {
+    @include respond-to-max(sm) {
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+  }
+}
+
+// NAVBAR RESPONSIVE
+.navbar {
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+  padding: 1rem 0;
+  
+  @include respond-to-max(lg) {
+    padding: 0.75rem 0;
+  }
+  
+  .navbar-brand {
+    font-weight: 700;
+    color: $primary;
+    font-size: 1.5rem;
+    
+    @include respond-to-max(sm) {
+      font-size: 1.25rem;
+    }
+  }
+  
+  .nav-link {
+    color: $text-light;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    
+    @include respond-to-max(lg) {
+      padding: 0.4rem 0.8rem;
+    }
+    
+    &.active,
+    &:hover {
+      color: $primary;
+    }
+  }
+  
+  .btn-primary {
+    @include respond-to-max(sm) {
+      width: 100%;
+      margin-top: 0.5rem;
+    }
+  }
+}
+
+// BUTTONS RESPONSIVE
+.btn-primary {
+  background-color: $primary;
+  border: none;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: $transition-base;
+  
+  @include respond-to-max(sm) {
+    padding: 0.875rem 1.25rem;
+    font-size: 0.95rem;
+  }
+  
+  &:hover {
+    background-color: $primary-dark;
+    transform: translateY(-1px);
+  }
+}
+
+// FOOTER RESPONSIVE
+footer {
+  padding: 2rem 0;
+  background-color: #fff;
+  border-top: 1px solid #eee;
+  font-size: 0.9rem;
+  color: #888;
+  text-align: center;
+  
+  @include respond-to-max(sm) {
+    padding: 1.5rem 0;
+    font-size: 0.85rem;
+  }
+}
+
+// CONTAINER ADJUSTMENTS
+.container {
+  @include respond-to-max(sm) {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+// FORMS RESPONSIVE
+.form-control {
+  @include respond-to-max(sm) {
+    font-size: 1rem; // Evita zoom en iOS
+  }
+}
+
+// SPACING RESPONSIVE
+.py-5 {
+  @include respond-to-max(md) {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+  
+  @include respond-to-max(sm) {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+}
+
+.pb-5 {
+  @include respond-to-max(md) {
+    padding-bottom: 3rem !important;
+  }
+  
+  @include respond-to-max(sm) {
+    padding-bottom: 2rem !important;
+  }
+}
+
+// ROW GAPS RESPONSIVE
+.g-4 {
+  @include respond-to-max(sm) {
+    --bs-gutter-x: 1rem;
+    --bs-gutter-y: 1rem;
+  }
+}
+
+// UTILITY CLASSES RESPONSIVE
+@include respond-to-max(md) {
+  .text-center {
+    &.responsive-text-left {
+      text-align: left !important;
+    }
+  }
+}
+
+@include respond-to-max(sm) {
+  .text-center {
+    &.responsive-text-left {
+      text-align: center !important;
+    }
+  }
+}
+
+// IMAGE OPTIMIZATIONS
+img {
+  height: auto;
+  max-width: 100%;
+  
+  &.rounded {
+    @include respond-to-max(sm) {
+      border-radius: 8px;
+    }
+  }
+}
+
+// OPINIONES PAGE SPECIFIC
+.card-custom .d-flex {
+  @include respond-to-max(sm) {
+    flex-direction: column;
+    text-align: center;
+    
+    img {
+      align-self: center;
+      margin-bottom: 1rem;
+      margin-right: 0 !important;
+    }
+  }
+}

@@ -1,0 +1,395 @@
+// ================================
+// PAGES - HOME / INDEX
+// ================================
+
+/* Hero section específica del home - RESPONSIVE OPTIMIZADO */
+.home-hero {
+  @extend .hero;
+  background: linear-gradient(135deg, rgba($primary, 0.05) 0%, rgba($primary, 0.1) 100%);
+  padding: $spacing-4xl 0 0;
+  min-height: 100vh;
+  @include flex-center;
+  flex-direction: column;
+  text-align: center;
+  
+  @include respond-to-max(md) {
+    min-height: 80vh;
+    padding: $spacing-3xl 0 0;
+  }
+  
+  @include respond-to-max(sm) {
+    min-height: 70vh;
+    padding: $spacing-2xl 0 0;
+  }
+  
+  .hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 $spacing-md $spacing-4xl;
+    
+    @include respond-to-max(md) {
+      padding: 0 $spacing-lg $spacing-3xl;
+    }
+    
+    @include respond-to-max(sm) {
+      padding: 0 $spacing-md $spacing-2xl;
+    }
+    
+    h1 {
+      font-size: $font-size-hero;
+      line-height: $line-height-tight;
+      margin-bottom: $spacing-lg;
+      
+      @include respond-to-max(lg) {
+        font-size: $font-size-3xl;
+      }
+      
+      @include respond-to-max(md) {
+        font-size: $font-size-2xl;
+        margin-bottom: $spacing-md;
+      }
+      
+      @include respond-to-max(sm) {
+        font-size: $font-size-xl;
+        line-height: $line-height-base;
+      }
+    }
+    
+    .lead {
+      font-size: $font-size-lg;
+      margin-bottom: $spacing-xl;
+      color: $text-light;
+      
+      @include respond-to-max(md) {
+        font-size: $font-size-base;
+        margin-bottom: $spacing-lg;
+      }
+      
+      @include respond-to-max(sm) {
+        font-size: $font-size-sm;
+      }
+    }
+  }
+  
+  .hero-badges {
+    @include flex-center;
+    gap: $spacing-md;
+    margin-bottom: $spacing-lg;
+    flex-wrap: wrap;
+    
+    @include respond-to-max(sm) {
+      gap: $spacing-sm;
+      margin-bottom: $spacing-md;
+    }
+    
+    .badge {
+      background-color: rgba($primary, 0.1);
+      color: $primary;
+      padding: $spacing-xs $spacing-md;
+      border-radius: $border-radius-full;
+      font-size: $font-size-sm;
+      font-weight: $font-weight-medium;
+      
+      @include respond-to-max(sm) {
+        padding: $spacing-xs $spacing-sm;
+        font-size: 0.75rem;
+      }
+    }
+  }
+  
+  .hero-cta {
+    @include flex-center;
+    gap: $spacing-md;
+    flex-wrap: wrap;
+    
+    @include respond-to-max(md) {
+      flex-direction: column;
+      gap: $spacing-sm;
+      
+      .btn {
+        width: 100%;
+        max-width: 280px;
+      }
+    }
+    
+    @include respond-to-max(sm) {
+      .btn {
+        padding: $spacing-md $spacing-lg;
+        font-size: $font-size-base;
+      }
+    }
+  }
+  
+  // Estadísticas integradas en el hero - RESPONSIVE
+  .hero-stats {
+    background: linear-gradient(135deg, $primary 0%, $primary-dark 100%);
+    color: white;
+    padding: $spacing-3xl 0;
+    margin-top: $spacing-2xl;
+    position: relative;
+    width: 100%;
+    
+    @include respond-to-max(md) {
+      padding: $spacing-2xl 0;
+      margin-top: $spacing-xl;
+    }
+    
+    @include respond-to-max(sm) {
+      padding: $spacing-xl 0;
+      margin-top: $spacing-lg;
+    }
+    
+    // Curva superior para transición suave
+    &::before {
+      content: '';
+      position: absolute;
+      top: -30px;
+      left: 0;
+      right: 0;
+      height: 30px;
+      background: linear-gradient(135deg, $primary 0%, $primary-dark 100%);
+      clip-path: ellipse(100% 100% at 50% 100%);
+      
+      @include respond-to-max(md) {
+        top: -20px;
+        height: 20px;
+      }
+      
+      @include respond-to-max(sm) {
+        top: -15px;
+        height: 15px;
+      }
+    }
+    
+    .container {
+      @include respond-to-max(sm) {
+        padding: 0 $spacing-lg;
+      }
+    }
+    
+    .row {
+      @include respond-to-max(md) {
+        text-align: center;
+      }
+    }
+    
+    .stat-item {
+      text-align: center;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all $animation-duration-slower $animation-easing-cubic;
+      padding: $spacing-lg 0;
+      
+      @include respond-to-max(md) {
+        padding: $spacing-md 0;
+      }
+      
+      @include respond-to-max(sm) {
+        padding: $spacing-sm 0;
+        margin-bottom: $spacing-md;
+        
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+      
+      &.revealed {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      
+      .stat-number {
+        font-size: $font-size-3xl;
+        font-weight: $font-weight-bold;
+        margin-bottom: $spacing-sm;
+        position: relative;
+        overflow: hidden;
+        line-height: 1;
+        
+        @include respond-to(md) {
+          font-size: $font-size-hero;
+        }
+        
+        @include respond-to-max(md) {
+          font-size: $font-size-2xl;
+        }
+        
+        @include respond-to-max(sm) {
+          font-size: $font-size-xl;
+          margin-bottom: $spacing-xs;
+        }
+        
+        &::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(90deg, 
+            transparent, 
+            rgba(white, 0.3), 
+            transparent
+          );
+          animation: shimmer 2s infinite;
+          animation-delay: 1s;
+        }
+      }
+      
+      .stat-label {
+        font-size: $font-size-sm;
+        opacity: 0.9;
+        line-height: $line-height-base;
+        
+        @include respond-to(md) {
+          font-size: $font-size-base;
+        }
+        
+        @include respond-to-max(sm) {
+          font-size: 0.75rem;
+        }
+      }
+    }
+  }
+}
+
+/* Features section - RESPONSIVE OPTIMIZADO */
+.features-section {
+  padding: $spacing-5xl 0;
+  
+  @include respond-to-max(md) {
+    padding: $spacing-4xl 0;
+  }
+  
+  @include respond-to-max(sm) {
+    padding: $spacing-3xl 0;
+  }
+  
+  .section-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto $spacing-4xl;
+    
+    @include respond-to-max(md) {
+      margin-bottom: $spacing-3xl;
+      padding: 0 $spacing-lg;
+    }
+    
+    @include respond-to-max(sm) {
+      margin-bottom: $spacing-2xl;
+      padding: 0 $spacing-md;
+    }
+    
+    h2 {
+      margin-bottom: $spacing-md;
+      font-size: $font-size-3xl;
+      
+      @include respond-to-max(md) {
+        font-size: $font-size-2xl;
+      }
+      
+      @include respond-to-max(sm) {
+        font-size: $font-size-xl;
+      }
+    }
+    
+    p {
+      color: $text-light;
+      font-size: $font-size-lg;
+      
+      @include respond-to-max(md) {
+        font-size: $font-size-base;
+      }
+      
+      @include respond-to-max(sm) {
+        font-size: $font-size-sm;
+      }
+    }
+  }
+  
+  .features-grid {
+    @extend .auto-grid;
+    gap: $spacing-xl;
+    
+    @include respond-to-max(md) {
+      grid-template-columns: 1fr;
+      gap: $spacing-lg;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    
+    @include respond-to-max(sm) {
+      gap: $spacing-md;
+      padding: 0 $spacing-md;
+    }
+  }
+}
+
+/* Stats section */
+.stats-section {
+  background-color: $primary;
+  color: white;
+  text-align: center;
+  
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-xl;
+    
+    @include respond-to(md) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  
+  .stat-item {
+    .stat-number {
+      font-size: $font-size-3xl;
+      font-weight: $font-weight-bold;
+      margin-bottom: $spacing-sm;
+      
+      @include respond-to(sm) {
+        font-size: $font-size-hero;
+      }
+    }
+    
+    .stat-label {
+      font-size: $font-size-sm;
+      opacity: 0.9;
+      
+      @include respond-to(sm) {
+        font-size: $font-size-base;
+      }
+    }
+  }
+}
+
+/* CTA section */
+.cta-section {
+  background: linear-gradient(135deg, $primary 0%, $primary-dark 100%);
+  color: white;
+  text-align: center;
+  
+  h2 {
+    color: white;
+    margin-bottom: $spacing-md;
+  }
+  
+  p {
+    color: rgba(white, 0.9);
+    margin-bottom: $spacing-xl;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .btn-secondary {
+    background-color: white;
+    color: $primary;
+    border: none;
+    
+    &:hover {
+      background-color: rgba(white, 0.9);
+      transform: translateY(-2px);
+    }
+  }
+}

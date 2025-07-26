@@ -1,0 +1,295 @@
+// ================================
+// LAYOUT - NAVBAR & NAVIGATION RESPONSIVE
+// ================================
+
+.navbar {
+  background-color: rgba($bg-card, 0.95);
+  border-bottom: 1px solid $border-light;
+  padding: $spacing-md 0;
+  position: sticky;
+  top: 0;
+  z-index: $z-sticky;
+  backdrop-filter: blur(12px);
+  box-shadow: $shadow-sm;
+  transition: all $animation-duration-normal $animation-easing-cubic;
+
+  // Estados del navbar
+  &.navbar-compact {
+    padding: $spacing-sm 0;
+    backdrop-filter: blur(16px);
+    box-shadow: $shadow-md;
+
+    .navbar-brand {
+      font-size: $font-size-lg;
+    }
+  }
+
+  &.navbar-hidden {
+    transform: translateY(-100%);
+  }
+
+  .container {
+    @include flex-between;
+    position: relative;
+  }
+
+  // Marca/Logo
+  .navbar-brand {
+    font-weight: $font-weight-bold;
+    font-size: $font-size-xl;
+    color: $primary;
+    text-decoration: none;
+    transition: all $animation-duration-fast ease;
+    z-index: $z-dropdown;
+
+    &:hover {
+      color: $primary-dark;
+      transform: scale(1.05);
+    }
+
+    @include respond-to-max(sm) {
+      font-size: $font-size-lg;
+    }
+  }
+
+  // Navegación principal
+  .navbar-nav {
+    @include flex-center;
+    gap: $spacing-md;
+
+    @include respond-to(lg) {
+      gap: $spacing-xl;
+    }
+
+    // Ocultar en móvil cuando el menú está cerrado
+    @include respond-to-max(md) {
+      display: none;
+
+      &.show {
+        display: flex;
+      }
+    }
+
+    .nav-item {
+      position: relative;
+    }
+
+    .nav-link {
+      color: $text-light;
+      font-weight: $font-weight-medium;
+      text-decoration: none;
+      padding: $spacing-sm $spacing-md;
+      border-radius: $border-radius-sm;
+      transition: all $animation-duration-fast ease;
+
+      &:hover,
+      &.active {
+        color: $primary;
+        background-color: rgba($primary, 0.1);
+        transform: translateY(-2px);
+      }
+
+      &.active::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 20px;
+        height: 2px;
+        background: $primary;
+        border-radius: $border-radius-full;
+      }
+    }
+  }
+
+  // Botón hamburguesa mejorado
+  .navbar-toggler {
+    display: none;
+    background: none;
+    border: none;
+    padding: $spacing-sm;
+    cursor: pointer;
+    z-index: $z-dropdown;
+    transition: all $animation-duration-fast ease;
+
+    @include respond-to-max(md) {
+      display: flex;
+      @include flex-center;
+    }
+
+    // Ícono hamburguesa animado
+    .hamburger {
+      width: 24px;
+      height: 18px;
+      position: relative;
+      transform: rotate(0deg);
+      transition: all $animation-duration-normal $animation-easing-cubic;
+
+      span {
+        display: block;
+        position: absolute;
+        height: 2px;
+        width: 100%;
+        background: $text;
+        border-radius: 2px;
+        opacity: 1;
+        left: 0;
+        transform: rotate(0deg);
+        transition: all $animation-duration-fast $animation-easing-cubic;
+
+        &:nth-child(1) {
+          top: 0px;
+        }
+
+        &:nth-child(2),
+        &:nth-child(3) {
+          top: 8px;
+        }
+
+        &:nth-child(4) {
+          top: 16px;
+        }
+      }
+    }
+
+    // Estado activo (X)
+    &.active .hamburger {
+      span {
+        &:nth-child(1) {
+          top: 8px;
+          width: 0%;
+          left: 50%;
+        }
+
+        &:nth-child(2) {
+          transform: rotate(45deg);
+        }
+
+        &:nth-child(3) {
+          transform: rotate(-45deg);
+        }
+
+        &:nth-child(4) {
+          top: 8px;
+          width: 0%;
+          left: 50%;
+        }
+      }
+    }
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  // Menú móvil mejorado
+  .navbar-collapse {
+    @include respond-to-max(md) {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: rgba($bg-card, 0.98);
+      backdrop-filter: blur(20px);
+      padding: $spacing-6xl $spacing-xl $spacing-xl;
+      transform: translateX(-100%);
+      transition: transform $animation-duration-slow $animation-easing-cubic;
+      z-index: $z-fixed;
+
+      &.show {
+        transform: translateX(0);
+      }
+
+      .navbar-nav {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-xl;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+
+        .nav-item {
+          opacity: 0;
+          transform: translateY(30px);
+          animation: slideInUp $animation-duration-normal $animation-easing-cubic forwards;
+
+          @for $i from 1 through 6 {
+            &:nth-child(#{$i}) {
+              animation-delay: #{($i - 1) * 0.1s};
+            }
+          }
+        }
+
+        .nav-link {
+          font-size: $font-size-lg;
+          padding: $spacing-lg $spacing-xl;
+          text-align: center;
+          width: 100%;
+          border-radius: $border-radius-md;
+
+          &:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: $shadow-lg;
+          }
+        }
+
+        .btn {
+          margin-top: $spacing-lg;
+          width: auto;
+          min-width: 200px;
+        }
+      }
+    }
+
+    // Desktop
+    @include respond-to(md) {
+      display: flex !important;
+      position: static;
+      background: none;
+      padding: 0;
+      transform: none;
+
+      .navbar-nav {
+        display: flex;
+        flex-direction: row;
+      }
+    }
+  }
+
+  // Overlay para cerrar menú móvil
+  .navbar-overlay {
+    display: none;
+
+    @include respond-to-max(md) {
+      &.show {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba($text, 0.5);
+        z-index: #{$z-fixed - 1};
+      }
+    }
+  }
+}
+
+// Animación para items del menú móvil
+@keyframes slideInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Evitar scroll cuando menú móvil está abierto
+body.menu-open {
+  @include respond-to-max(md) {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+  }
+}

@@ -1,0 +1,347 @@
+// ================================
+// ANIMATIONS - EFECTOS ESPECÍFICOS PARA WALLO
+// ================================
+
+// Hero animations
+.home-hero {
+  .hero-content {
+    h1 {
+      @include fade-in-up($animation-duration-slower, 0.2s);
+    }
+    
+    p {
+      @include fade-in-up($animation-duration-slower, 0.4s);
+    }
+    
+    .hero-cta {
+      @include fade-in-up($animation-duration-slower, 0.6s);
+      
+      .btn {
+        &:first-child {
+          @include button-ripple;
+        }
+        
+        &:hover {
+          transform: translateY(-2px);
+        }
+      }
+    }
+  }
+}
+
+// Features cards animations
+.features-section {
+  .features-grid {
+    @extend .stagger-animation;
+  }
+  
+  .card-feature {
+    @include hover-lift;
+    transition: all $animation-duration-normal $animation-easing-cubic;
+    
+    &:hover {
+      .card-icon {
+        @include animate(pulse, 0.6s, $animation-easing-ease);
+        transform: scale(1.1);
+      }
+    }
+    
+    .card-icon {
+      transition: transform $animation-duration-normal $animation-easing-bounce;
+    }
+  }
+}
+
+// Stats section animations
+.stats-section {
+  .stat-item {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all $animation-duration-slower $animation-easing-cubic;
+    
+    .stat-number {
+      position: relative;
+      overflow: hidden;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, 
+          transparent, 
+          rgba(white, 0.3), 
+          transparent
+        );
+        animation: shimmer 2s infinite;
+        animation-delay: 1s;
+      }
+    }
+  }
+}
+
+// Pricing cards animations
+.pricing-section {
+  .pricing-card {
+    @include hover-lift;
+    transition: all $animation-duration-normal $animation-easing-cubic;
+    
+    &.featured {
+      @include animate(pulse, 2s, $animation-easing-ease, 0s);
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      
+      &::before {
+        @include animate(slideInUp, $animation-duration-normal, $animation-easing-cubic, 0.2s);
+      }
+    }
+    
+    &:hover {
+      .pricing-badge {
+        @include animate(bounce, 0.6s, $animation-easing-bounce);
+      }
+      
+      .pricing-price {
+        color: $primary-light;
+        transform: scale(1.05);
+      }
+    }
+    
+    .pricing-price {
+      transition: all $animation-duration-normal $animation-easing-cubic;
+    }
+    
+    .pricing-btn {
+      @include button-ripple;
+      
+      &.primary {
+        &:hover {
+          @include hover-glow;
+        }
+      }
+    }
+    
+    .pricing-features li {
+      opacity: 0;
+      animation: fadeInLeft $animation-duration-normal $animation-easing-cubic both;
+      
+      @for $i from 1 through 8 {
+        &:nth-child(#{$i}) {
+          animation-delay: #{0.5s + ($i * 0.1s)};
+        }
+      }
+    }
+  }
+}
+
+// Testimonials animations
+.testimonials-section {
+  .testimonial-card {
+    @include hover-lift;
+    transition: all $animation-duration-normal $animation-easing-cubic;
+    
+    &:hover {
+      .testimonial-avatar {
+        transform: rotate(360deg) scale(1.1);
+        box-shadow: 0 0 20px rgba($primary, 0.4);
+      }
+      
+      .testimonial-text {
+        &::before,
+        &::after {
+          color: $primary;
+          opacity: 1;
+        }
+      }
+    }
+    
+    .testimonial-avatar {
+      transition: all $animation-duration-slow $animation-easing-bounce;
+    }
+    
+    .testimonial-text {
+      &::before,
+      &::after {
+        transition: all $animation-duration-normal $animation-easing-cubic;
+      }
+    }
+  }
+}
+
+// Navbar animations
+.navbar {
+  transition: all $animation-duration-normal $animation-easing-cubic;
+  
+  .navbar-brand {
+    transition: all $animation-duration-normal $animation-easing-cubic;
+    
+    &:hover {
+      transform: scale(1.05);
+      color: $primary-light;
+    }
+  }
+  
+  .nav-link {
+    position: relative;
+    transition: all $animation-duration-normal $animation-easing-cubic;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: $primary;
+      transition: all $animation-duration-normal $animation-easing-cubic;
+      transform: translateX(-50%);
+    }
+    
+    &:hover,
+    &.active {
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+  
+  .btn {
+    transition: all $animation-duration-normal $animation-easing-cubic;
+    
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba($primary, 0.3);
+    }
+  }
+}
+
+// Footer animations
+footer {
+  .footer-social a {
+    transition: all $animation-duration-normal $animation-easing-bounce;
+    
+    &:hover {
+      transform: translateY(-3px) rotate(10deg);
+      background: linear-gradient(135deg, $primary, $primary-light);
+    }
+  }
+}
+
+// Loading placeholder
+.loading-placeholder {
+  position: relative;
+  overflow: hidden;
+  background-color: $border-light;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-100%);
+    background: linear-gradient(90deg, 
+      transparent, 
+      rgba(white, 0.6), 
+      transparent
+    );
+    animation: shimmer 1.5s infinite;
+  }
+  
+  &.loading-text {
+    height: 1em;
+    border-radius: $border-radius-sm;
+    margin-bottom: $spacing-sm;
+    
+    &:last-child {
+      width: 60%;
+    }
+  }
+  
+  &.loading-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: $border-radius-full;
+  }
+  
+  &.loading-card {
+    height: 200px;
+    border-radius: $border-radius-lg;
+  }
+}
+
+// Scroll reveal animations
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all $animation-duration-slower $animation-easing-cubic;
+  
+  &.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  &.reveal-delay-1 { transition-delay: 0.1s; }
+  &.reveal-delay-2 { transition-delay: 0.2s; }
+  &.reveal-delay-3 { transition-delay: 0.3s; }
+  &.reveal-delay-4 { transition-delay: 0.4s; }
+  &.reveal-delay-5 { transition-delay: 0.5s; }
+}
+
+// Parallax effect (ligero)
+.parallax-element {
+  transition: transform $animation-duration-fast linear;
+  
+  &.parallax-slow {
+    transform: translateY(var(--scroll-y, 0));
+  }
+  
+  &.parallax-fast {
+    transform: translateY(calc(var(--scroll-y, 0) * 0.5));
+  }
+}
+
+// Floating elements
+.floating {
+  @include animate(float, 3s, $animation-easing-ease-in-out, 0s);
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes float {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-10px);
+  }
+}
+
+// Button hover effects
+.btn-animated {
+  position: relative;
+  overflow: hidden;
+  transition: all $animation-duration-normal $animation-easing-cubic;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+      transparent, 
+      rgba(white, 0.2), 
+      transparent
+    );
+    transition: left $animation-duration-slow $animation-easing-cubic;
+  }
+  
+  &:hover::before {
+    left: 100%;
+  }
+}

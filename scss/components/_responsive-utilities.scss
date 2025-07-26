@@ -1,0 +1,245 @@
+// ================================
+// RESPONSIVE UTILITIES
+// ================================
+
+/* Visibility utilities */
+.show-mobile {
+  display: none !important;
+  
+  @include mobile-only {
+    display: block !important;
+  }
+}
+
+.hide-mobile {
+  @include mobile-only {
+    display: none !important;
+  }
+}
+
+.show-tablet {
+  display: none !important;
+  
+  @include tablet-only {
+    display: block !important;
+  }
+}
+
+.hide-tablet {
+  @include tablet-only {
+    display: none !important;
+  }
+}
+
+.show-desktop {
+  display: none !important;
+  
+  @include desktop-only {
+    display: block !important;
+  }
+}
+
+.hide-desktop {
+  @include desktop-only {
+    display: none !important;
+  }
+}
+
+/* Text alignment responsive */
+.text-center-mobile {
+  @include mobile-only {
+    text-align: center !important;
+  }
+}
+
+.text-left-mobile {
+  @include mobile-only {
+    text-align: left !important;
+  }
+}
+
+.text-center-tablet {
+  @include tablet-only {
+    text-align: center !important;
+  }
+}
+
+/* Spacing responsive utilities */
+.p-mobile {
+  @include mobile-only {
+    padding: $spacing-md !important;
+  }
+}
+
+.p-tablet {
+  @include tablet-only {
+    padding: $spacing-lg !important;
+  }
+}
+
+.p-desktop {
+  @include desktop-only {
+    padding: $spacing-xl !important;
+  }
+}
+
+.m-mobile {
+  @include mobile-only {
+    margin: $spacing-md !important;
+  }
+}
+
+.mt-mobile {
+  @include mobile-only {
+    margin-top: $spacing-md !important;
+  }
+}
+
+.mb-mobile {
+  @include mobile-only {
+    margin-bottom: $spacing-md !important;
+  }
+}
+
+/* Flexbox responsive utilities */
+.flex-column-mobile {
+  @include mobile-only {
+    flex-direction: column !important;
+  }
+}
+
+.flex-row-mobile {
+  @include mobile-only {
+    flex-direction: row !important;
+  }
+}
+
+.justify-center-mobile {
+  @include mobile-only {
+    justify-content: center !important;
+  }
+}
+
+.align-center-mobile {
+  @include mobile-only {
+    align-items: center !important;
+  }
+}
+
+/* Grid responsive utilities */
+.grid-1-mobile {
+  @include mobile-only {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+.grid-2-tablet {
+  @include tablet-only {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+.grid-3-desktop {
+  @include desktop-only {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+
+/* Width utilities responsive */
+.w-full-mobile {
+  @include mobile-only {
+    width: 100% !important;
+  }
+}
+
+.w-auto-tablet {
+  @include tablet-only {
+    width: auto !important;
+  }
+}
+
+/* Container responsive */
+.container-fluid-mobile {
+  @include mobile-only {
+    padding-left: $spacing-md !important;
+    padding-right: $spacing-md !important;
+  }
+}
+
+/* Font size responsive utilities */
+.fs-small-mobile {
+  @include mobile-only {
+    font-size: $font-size-sm !important;
+  }
+}
+
+.fs-base-mobile {
+  @include mobile-only {
+    font-size: $font-size-base !important;
+  }
+}
+
+.fs-large-desktop {
+  @include desktop-only {
+    font-size: $font-size-lg !important;
+  }
+}
+
+/* Order utilities for flexbox/grid */
+.order-first-mobile {
+  @include mobile-only {
+    order: -1 !important;
+  }
+}
+
+.order-last-mobile {
+  @include mobile-only {
+    order: 999 !important;
+  }
+}
+
+/* Hover states for touch devices */
+.hover-disabled-touch {
+  @include touch {
+    &:hover {
+      transform: none !important;
+      box-shadow: inherit !important;
+    }
+  }
+}
+
+/* Reduce motion for accessibility */
+@include prefers-reduced-motion {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  .print-block {
+    display: block !important;
+  }
+  
+  .navbar,
+  .btn,
+  .hero-stats {
+    display: none !important;
+  }
+  
+  body {
+    font-size: 12pt !important;
+    line-height: 1.4 !important;
+    color: #000 !important;
+    background: #fff !important;
+  }
+}

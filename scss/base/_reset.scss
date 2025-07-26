@@ -1,0 +1,70 @@
+// ================================
+// BASE - RESET & NORMALIZE
+// ================================
+
+/* Reset básico para consistencia cross-browser */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  line-height: $line-height-base;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: $font-family-primary;
+  font-size: $font-size-base;
+  font-weight: $font-weight-normal;
+  line-height: $line-height-base;
+  color: $text;
+  background-color: $bg-light;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Mejorar legibilidad en elementos de bloque */
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+dl, dd, ol, ul,
+figure, hr, fieldset, legend {
+  margin-bottom: $spacing-md;
+}
+
+/* Reset de listas */
+ul, ol {
+  list-style: none;
+}
+
+/* Links sin decoración por defecto */
+a {
+  text-decoration: none;
+  color: inherit;
+  
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+/* Imágenes responsive por defecto */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Formularios más accesibles */
+input, button, textarea, select {
+  font: inherit;
+  color: inherit;
+}
+
+/* Overflow hidden en body para evitar scroll horizontal */
+body {
+  overflow-x: hidden;
+}
