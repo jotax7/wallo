@@ -1,0 +1,176 @@
+// ================================
+// COMPONENTS - TESTIMONIALS & CAROUSEL
+// ================================
+
+// Testimonial Cards
+.testimonial-card {
+  background: $bg-card;
+  border: 1px solid $border-light;
+  border-radius: $border-radius-lg;
+  padding: $spacing-xl;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, $primary, $secondary);
+  }
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
+    border-color: $primary;
+  }
+  
+  img {
+    border: 3px solid #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+}
+
+// Carousel Enhancements
+.carousel {
+  .carousel-indicators {
+    bottom: -50px;
+    
+    button {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin: 0 6px;
+      border: none;
+      background: $border-light;
+      opacity: 0.5;
+      transition: all 0.3s ease;
+      
+      &.active {
+        background: $primary;
+        opacity: 1;
+        transform: scale(1.2);
+      }
+    }
+  }
+  
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 50px;
+    height: 50px;
+    background: $bg-card;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 1px solid $border-light;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      background: $primary;
+      border-color: $primary;
+      transform: translateY(-50%) scale(1.1);
+      
+      .carousel-control-prev-icon,
+      .carousel-control-next-icon {
+        filter: brightness(0) invert(1);
+      }
+    }
+  }
+  
+  .carousel-control-prev {
+    left: -25px;
+  }
+  
+  .carousel-control-next {
+    right: -25px;
+  }
+  
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    width: 20px;
+    height: 20px;
+    filter: brightness(0);
+  }
+}
+
+// Stats Cards
+.stats-card {
+  padding: $spacing-xl;
+  border-radius: $border-radius-lg;
+  background: $bg-card;
+  border: 1px solid $border-light;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    
+    i {
+      transform: scale(1.1);
+    }
+  }
+  
+  i {
+    transition: transform 0.3s ease;
+  }
+  
+  h3 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+// Badge Enhancements for Testimonials  
+.badge {
+  &.bg-purple-subtle {
+    background-color: rgba(138, 43, 226, 0.1) !important;
+    color: #8a2be2 !important;
+  }
+  
+  &.bg-info-subtle {
+    background-color: rgba(13, 202, 240, 0.1) !important;
+    color: #0dcaf0 !important;
+  }
+}
+
+// Responsive adjustments
+@include respond-to(md) {
+  .testimonial-card {
+    padding: $spacing-lg;
+  }
+  
+  .carousel {
+    .carousel-control-prev,
+    .carousel-control-next {
+      display: none;
+    }
+  }
+  
+  .stats-card {
+    padding: $spacing-lg;
+    
+    h3 {
+      font-size: 2rem;
+    }
+  }
+}
+
+@include respond-to(sm) {
+  .testimonial-card {
+    padding: $spacing-md;
+    
+    .d-flex {
+      flex-direction: column;
+      text-align: center;
+      
+      img {
+        margin-right: 0 !important;
+        margin-bottom: $spacing-sm;
+      }
+    }
+  }
+}
