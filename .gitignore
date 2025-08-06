@@ -17,3 +17,4 @@ Thumbs.db
 
 # SASS compilation maps (opcional)
 *.css.map
+node_modules/
