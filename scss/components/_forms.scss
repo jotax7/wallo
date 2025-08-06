@@ -243,7 +243,14 @@ textarea {
 
 // Form submission button enhancements
 .btn-primary {
+  background-color: $primary !important;
+  border-color: $primary !important;
+  color: white !important;
+  
   &.btn-lg {
+    background-color: $primary !important;
+    border-color: $primary !important;
+    color: white !important;
     border-radius: 50px;
     font-weight: 600;
     letter-spacing: 0.5px;

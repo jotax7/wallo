@@ -24,13 +24,32 @@
 }
 
 /* Button variants */
-.btn-primary {
-  @include button-variant($primary, white);
+.btn-primary,
+button.btn-primary,
+a.btn-primary,
+.btn.btn-primary {
+  background-color: $primary !important;
+  border-color: $primary !important;
+  color: white !important;
   
   &:hover:not(:disabled) {
     background-color: $primary-dark !important;
+    border-color: $primary-dark !important;
+    color: white !important;
     transform: translateY(-1px) !important;
     box-shadow: 0 4px 12px rgba($primary, 0.3) !important;
+  }
+  
+  &:focus, &:active, &.active {
+    background-color: $primary-dark !important;
+    border-color: $primary-dark !important;
+    color: white !important;
+    box-shadow: 0 0 0 0.25rem rgba($primary, 0.25) !important;
+  }
+  
+  &:visited {
+    background-color: $primary !important;
+    color: white !important;
   }
 }
 

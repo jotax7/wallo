@@ -1,129 +1,256 @@
 // ================================
-// COMPONENTS - UTILITIES
+// COMPONENTS - UTILITIES (CLEAN)
 // ================================
 
-/* Spacing utilities */
-.mt-0 { margin-top: 0; }
-.mt-1 { margin-top: $spacing-xs; }
-.mt-2 { margin-top: $spacing-sm; }
-.mt-3 { margin-top: $spacing-md; }
-.mt-4 { margin-top: $spacing-lg; }
-.mt-5 { margin-top: $spacing-xl; }
+/* ==================================== */
+/* SPACING UTILITIES */
+/* ==================================== */
 
-.mb-0 { margin-bottom: 0; }
-.mb-1 { margin-bottom: $spacing-xs; }
-.mb-2 { margin-bottom: $spacing-sm; }
-.mb-3 { margin-bottom: $spacing-md; }
-.mb-4 { margin-bottom: $spacing-lg; }
-.mb-5 { margin-bottom: $spacing-xl; }
-
-.pt-0 { padding-top: 0; }
-.pt-1 { padding-top: $spacing-xs; }
-.pt-2 { padding-top: $spacing-sm; }
-.pt-3 { padding-top: $spacing-md; }
-.pt-4 { padding-top: $spacing-lg; }
-.pt-5 { padding-top: $spacing-xl; }
-
-.pb-0 { padding-bottom: 0; }
-.pb-1 { padding-bottom: $spacing-xs; }
-.pb-2 { padding-bottom: $spacing-sm; }
-.pb-3 { padding-bottom: $spacing-md; }
-.pb-4 { padding-bottom: $spacing-lg; }
-.pb-5 { padding-bottom: $spacing-xl; }
-
-/* Display utilities */
-.d-none { display: none; }
-.d-block { display: block; }
-.d-inline { display: inline; }
-.d-inline-block { display: inline-block; }
-.d-flex { display: flex; }
-.d-grid { display: grid; }
-
-/* Responsive display utilities */
-@include respond-to-max(sm) {
-  .d-sm-none { display: none; }
-  .d-sm-block { display: block; }
-  .d-sm-flex { display: flex; }
+// Margin utilities
+@each $size, $value in (
+  0: 0,
+  1: $spacing-xs,
+  2: $spacing-sm, 
+  3: $spacing-md,
+  4: $spacing-lg,
+  5: $spacing-xl
+) {
+  .mt-#{$size} { margin-top: #{$value}; }
+  .mb-#{$size} { margin-bottom: #{$value}; }
+  .ms-#{$size} { margin-left: #{$value}; }
+  .me-#{$size} { margin-right: #{$value}; }
+  .mx-#{$size} { margin-left: #{$value}; margin-right: #{$value}; }
+  .my-#{$size} { margin-top: #{$value}; margin-bottom: #{$value}; }
 }
 
-@include respond-to(md) {
-  .d-md-none { display: none; }
-  .d-md-block { display: block; }
-  .d-md-flex { display: flex; }
+// Padding utilities  
+@each $size, $value in (
+  0: 0,
+  1: $spacing-xs,
+  2: $spacing-sm,
+  3: $spacing-md, 
+  4: $spacing-lg,
+  5: $spacing-xl
+) {
+  .pt-#{$size} { padding-top: #{$value}; }
+  .pb-#{$size} { padding-bottom: #{$value}; }
+  .ps-#{$size} { padding-left: #{$value}; }
+  .pe-#{$size} { padding-right: #{$value}; }
+  .px-#{$size} { padding-left: #{$value}; padding-right: #{$value}; }
+  .py-#{$size} { padding-top: #{$value}; padding-bottom: #{$value}; }
 }
 
-/* Width utilities */
-.w-25 { width: 25%; }
-.w-50 { width: 50%; }
-.w-75 { width: 75%; }
-.w-100 { width: 100%; }
-.w-auto { width: auto; }
+/* ==================================== */
+/* DISPLAY UTILITIES */
+/* ==================================== */
 
-/* Height utilities */
-.h-25 { height: 25%; }
-.h-50 { height: 50%; }
-.h-75 { height: 75%; }
-.h-100 { height: 100%; }
-.h-auto { height: auto; }
+.d-none { display: none !important; }
+.d-block { display: block !important; }
+.d-inline { display: inline !important; }
+.d-inline-block { display: inline-block !important; }
+.d-flex { display: flex !important; }
+.d-grid { display: grid !important; }
 
-/* Position utilities */
-.position-relative { position: relative; }
-.position-absolute { position: absolute; }
-.position-fixed { position: fixed; }
-.position-sticky { position: sticky; }
+/* ==================================== */
+/* POSITION UTILITIES */
+/* ==================================== */
 
-/* Border utilities */
-.border { border: 1px solid $border-light; }
-.border-top { border-top: 1px solid $border-light; }
-.border-bottom { border-bottom: 1px solid $border-light; }
-.border-left { border-left: 1px solid $border-light; }
-.border-right { border-right: 1px solid $border-light; }
-.border-0 { border: 0; }
+.position-relative { position: relative !important; }
+.position-absolute { position: absolute !important; }
+.position-fixed { position: fixed !important; }
+.position-sticky { position: sticky !important; }
 
-.rounded { border-radius: $border-radius-md; }
-.rounded-sm { border-radius: $border-radius-sm; }
-.rounded-lg { border-radius: $border-radius-lg; }
-.rounded-full { border-radius: $border-radius-full; }
-.rounded-0 { border-radius: 0; }
+/* ==================================== */
+/* FLEX UTILITIES */
+/* ==================================== */
 
-/* Background utilities */
-.bg-primary { background-color: $primary; }
-.bg-light { background-color: $bg-light; }
-.bg-white { background-color: $bg-card; }
-.bg-transparent { background-color: transparent; }
+.justify-content-start { justify-content: flex-start !important; }
+.justify-content-center { justify-content: center !important; }
+.justify-content-end { justify-content: flex-end !important; }
+.justify-content-between { justify-content: space-between !important; }
 
-/* Text utilities */
-.text-primary { color: $primary; }
-.text-muted { color: $text-light; }
-.text-dark { color: $text; }
-.text-white { color: white; }
+.align-items-start { align-items: flex-start !important; }
+.align-items-center { align-items: center !important; }
+.align-items-end { align-items: flex-end !important; }
 
-.text-left { text-align: left; }
-.text-center { text-align: center; }
-.text-right { text-align: right; }
+.flex-column { flex-direction: column !important; }
+.flex-row { flex-direction: row !important; }
 
-.font-weight-normal { font-weight: $font-weight-normal; }
-.font-weight-medium { font-weight: $font-weight-medium; }
-.font-weight-bold { font-weight: $font-weight-bold; }
+/* ==================================== */
+/* TEXT UTILITIES */
+/* ==================================== */
 
-/* Overflow utilities */
-.overflow-hidden { overflow: hidden; }
-.overflow-auto { overflow: auto; }
-.overflow-scroll { overflow: scroll; }
+.text-left { text-align: left !important; }
+.text-center { text-align: center !important; }
+.text-right { text-align: right !important; }
 
-/* Visibility utilities */
-.visible { visibility: visible; }
-.invisible { visibility: hidden; }
+.text-uppercase { text-transform: uppercase !important; }
+.text-lowercase { text-transform: lowercase !important; }
+.text-capitalize { text-transform: capitalize !important; }
 
-/* Opacity utilities */
-.opacity-0 { opacity: 0; }
-.opacity-25 { opacity: 0.25; }
-.opacity-50 { opacity: 0.5; }
-.opacity-75 { opacity: 0.75; }
-.opacity-100 { opacity: 1; }
+.fw-normal { font-weight: $font-weight-normal !important; }
+.fw-medium { font-weight: $font-weight-medium !important; }
+.fw-bold { font-weight: $font-weight-bold !important; }
 
-/* Z-index utilities */
-.z-1 { z-index: 1; }
-.z-2 { z-index: 2; }
-.z-3 { z-index: 3; }
-.z-auto { z-index: auto; }
+/* ==================================== */
+/* COLOR UTILITIES - WALLO BRANDING */
+/* ==================================== */
+
+// Text colors
+.text-primary { color: $primary !important; }
+.text-secondary { color: $secondary !important; }
+.text-success { color: $success !important; }
+.text-warning { color: $warning !important; }
+.text-error { color: $error !important; }
+.text-muted { color: $text-light !important; }
+.text-dark { color: $text !important; }
+.text-white { color: white !important; }
+
+// Background colors
+.bg-primary { background-color: $primary !important; }
+.bg-secondary { background-color: $secondary !important; }
+.bg-success { background-color: $success !important; }
+.bg-warning { background-color: $warning !important; }
+.bg-error { background-color: $error !important; }
+.bg-light { background-color: $bg-light !important; }
+.bg-white { background-color: $bg-card !important; }
+.bg-transparent { background-color: transparent !important; }
+
+// Subtle backgrounds
+.bg-primary-subtle { 
+  background-color: rgba($primary, 0.1) !important;
+  color: $primary !important;
+}
+
+/* ==================================== */
+/* BORDER UTILITIES */
+/* ==================================== */
+
+.border { border: 1px solid $border-light !important; }
+.border-0 { border: 0 !important; }
+.border-top { border-top: 1px solid $border-light !important; }
+.border-bottom { border-bottom: 1px solid $border-light !important; }
+
+.rounded { border-radius: $border-radius-md !important; }
+.rounded-sm { border-radius: $border-radius-sm !important; }
+.rounded-lg { border-radius: $border-radius-lg !important; }
+.rounded-full { border-radius: $border-radius-full !important; }
+.rounded-0 { border-radius: 0 !important; }
+
+/* ==================================== */
+/* SIZE UTILITIES */
+/* ==================================== */
+
+.w-25 { width: 25% !important; }
+.w-50 { width: 50% !important; }
+.w-75 { width: 75% !important; }
+.w-100 { width: 100% !important; }
+.w-auto { width: auto !important; }
+
+.h-25 { height: 25% !important; }
+.h-50 { height: 50% !important; }
+.h-75 { height: 75% !important; }
+.h-100 { height: 100% !important; }
+.h-auto { height: auto !important; }
+
+/* ==================================== */
+/* SHADOW UTILITIES */
+/* ==================================== */
+
+.shadow-none { box-shadow: none !important; }
+.shadow-sm { box-shadow: $shadow-sm !important; }
+.shadow { box-shadow: $shadow-md !important; }
+.shadow-lg { box-shadow: $shadow-lg !important; }
+
+/* ==================================== */
+/* RESPONSIVE UTILITIES */
+/* ==================================== */
+
+.show-mobile { 
+  display: none !important;
+  @include respond-to-max(md) { 
+    display: block !important; 
+  }
+}
+
+.hide-mobile { 
+  @include respond-to-max(md) { 
+    display: none !important; 
+  }
+}
+
+.show-desktop { 
+  display: none !important;
+  @include respond-to(lg) { 
+    display: block !important; 
+  }
+}
+
+.hide-desktop { 
+  @include respond-to(lg) { 
+    display: none !important; 
+  }
+}
+
+/* ==================================== */
+/* BOOTSTRAP OVERRIDE - WALLO COLORS */
+/* ==================================== */
+
+// Forzar colores violeta para superar Bootstrap
+.text-primary,
+.text-primary a,
+.text-primary span,
+.badge .text-primary,
+h1 .text-primary,
+h2 .text-primary,
+h3 .text-primary,
+h4 .text-primary,
+h5 .text-primary,
+h6 .text-primary,
+span.text-primary,
+div.text-primary,
+.fw-bold.text-primary,
+.container .text-primary,
+.accordion-button i.text-primary {
+  color: $primary !important;
+}
+
+.bg-primary,
+.badge.bg-primary,
+.btn.bg-primary,
+body .container .btn-primary,
+body .container button.btn-primary,
+body .container a.btn-primary {
+  background-color: $primary !important;
+  border-color: $primary !important;
+}
+
+.bg-primary-subtle,
+div.badge.bg-primary-subtle.text-primary,
+.badge.bg-primary-subtle.text-primary,
+.container .badge.bg-primary-subtle,
+body .container .bg-primary-subtle {
+  background-color: rgba($primary, 0.1) !important;
+  color: $primary !important;
+  border-color: rgba($primary, 0.2) !important;
+}
+
+// Iconos con color primario
+.text-primary i,
+i.text-primary {
+  color: $primary !important;
+}
+
+// Sobrescribir cualquier azul residual de Bootstrap
+.text-info,
+.bg-info,
+.btn-info {
+  color: $primary !important;
+  background-color: $primary !important;
+}
+
+// CSS Variables para Bootstrap
+:root {
+  --bs-primary: #{$primary};
+  --bs-primary-rgb: 108, 92, 231;
+}
