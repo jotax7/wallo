@@ -22,9 +22,9 @@ WALLO#002/
 
 ## ✅ Lo que se CONSERVÓ
 - ✅ Bootstrap 5.3.3 (para funcionalidad básica)
-- ✅ HTML limpio y semántico
+- ✅ HTML limpio y semántico con etiquetas `<header>`, `<main>`, `<section>`, `<article>`, `<footer>`
 - ✅ CSS personalizado básico (`wallo.css`)
-- ✅ Estructura de navegación
+- ✅ Estructura de navegación accesible
 - ✅ Contenido de todas las páginas
 
 ## 🎯 Próximos pasos

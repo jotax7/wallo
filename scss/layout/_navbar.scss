@@ -3,15 +3,15 @@
 // ================================
 
 .navbar {
-  background-color: rgba($bg-card, 0.95);
-  border-bottom: 1px solid $border-light;
-  padding: $spacing-md 0;
-  position: sticky;
-  top: 0;
-  z-index: $z-sticky;
-  backdrop-filter: blur(12px);
-  box-shadow: $shadow-sm;
-  transition: all $animation-duration-normal $animation-easing-cubic;
+  background-color: rgba($bg-card, 0.95) !important;
+  border-bottom: 1px solid $border-light !important;
+  padding: $spacing-md 0 !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: $z-sticky !important;
+  backdrop-filter: blur(12px) !important;
+  box-shadow: $shadow-sm !important;
+  transition: all $animation-duration-normal $animation-easing-cubic !important;
 
   // Estados del navbar
   &.navbar-compact {
@@ -35,16 +35,16 @@
 
   // Marca/Logo
   .navbar-brand {
-    font-weight: $font-weight-bold;
-    font-size: $font-size-xl;
-    color: $primary;
-    text-decoration: none;
-    transition: all $animation-duration-fast ease;
-    z-index: $z-dropdown;
+    font-weight: $font-weight-bold !important;
+    font-size: $font-size-xl !important;
+    color: $primary !important;
+    text-decoration: none !important;
+    transition: all $animation-duration-fast ease !important;
+    z-index: $z-dropdown !important;
 
     &:hover {
-      color: $primary-dark;
-      transform: scale(1.05);
+      color: $primary-dark !important;
+      transform: scale(1.05) !important;
     }
 
     @include respond-to-max(sm) {
@@ -75,18 +75,18 @@
     }
 
     .nav-link {
-      color: $text-light;
-      font-weight: $font-weight-medium;
-      text-decoration: none;
-      padding: $spacing-sm $spacing-md;
-      border-radius: $border-radius-sm;
-      transition: all $animation-duration-fast ease;
+      color: $text-light !important;
+      font-weight: $font-weight-medium !important;
+      text-decoration: none !important;
+      padding: $spacing-sm $spacing-md !important;
+      border-radius: $border-radius-sm !important;
+      transition: all $animation-duration-fast ease !important;
 
       &:hover,
       &.active {
-        color: $primary;
-        background-color: rgba($primary, 0.1);
-        transform: translateY(-2px);
+        color: $primary !important;
+        background-color: rgba($primary, 0.1) !important;
+        transform: translateY(-2px) !important;
       }
 
       &.active::after {

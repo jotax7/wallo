@@ -1,17 +1,38 @@
 {
   "name": "wallo-landing",
   "version": "1.0.0",
-  "description": "Landing page profesional para Wallo - Primera wallet social cripto",
+  "description": "Wallo - La primera wallet social del mundo cripto",
+  "main": "index.html",
   "scripts": {
-    "build-css": "sass scss/main.scss css/main.css --style=expanded",
-    "watch-css": "sass scss/main.scss css/main.css --style=expanded --watch",
-    "build-css-prod": "sass scss/main.scss css/main.css --style=compressed --no-source-map",
-    "dev": "npm run watch-css"
+    "build": "npm run build:css",
+    "build:css": "sass scss/main.scss css/wallo.min.css --style compressed --no-source-map",
+    "dev": "npm run dev:css",
+    "dev:css": "sass scss/main.scss css/wallo.css --style expanded --no-source-map",
+    "watch": "sass --watch scss/main.scss css/wallo.css --style expanded",
+    "watch:min": "sass --watch scss/main.scss css/wallo.min.css --style compressed --no-source-map",
+    "clean": "rm -rf css/*.css css/*.map",
+    "serve": "python3 -m http.server 8000",
+    "build:all": "npm run clean && npm run dev:css && npm run build:css"
   },
+  "keywords": [
+    "crypto",
+    "wallet", 
+    "trading",
+    "social",
+    "blockchain",
+    "defi",
+    "sass",
+    "bootstrap",
+    "responsive"
+  ],
+  "author": "Joaquín Shaw",
+  "license": "MIT",
   "devDependencies": {
     "sass": "^1.89.2"
   },
-  "keywords": ["landing-page", "sass", "bootstrap", "responsive", "crypto", "wallo"],
-  "author": "Joaquin Shaw",
-  "license": "MIT"
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
 }

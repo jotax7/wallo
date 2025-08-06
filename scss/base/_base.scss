@@ -2,11 +2,23 @@
 // BASE - ESTILOS BASE GENERALES
 // ================================
 
+/* Prevenir overflow horizontal */
+html {
+  overflow-x: hidden !important;
+}
+
+body {
+  overflow-x: hidden !important;
+  min-width: 320px !important;
+}
+
 /* Contenedor principal */
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 $spacing-md;
+  width: 100%;
+  box-sizing: border-box;
   
   @include respond-to(sm) {
     padding: 0 $spacing-lg;
@@ -14,6 +26,12 @@
   
   @include respond-to(lg) {
     padding: 0 $spacing-xl;
+  }
+  
+  // Prevenir overflow en contenedores
+  @include respond-to-max(sm) {
+    padding: 0 $spacing-sm;
+    max-width: 100vw;
   }
 }
 

@@ -5,21 +5,21 @@
 /* Base button styles */
 .btn {
   @include button-base;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: $spacing-sm;
-  text-decoration: none;
-  border: none;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  font-weight: $font-weight-medium;
-  line-height: 1;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: $spacing-sm !important;
+  text-decoration: none !important;
+  border: none !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  font-weight: $font-weight-medium !important;
+  line-height: 1 !important;
   
   &:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-    transform: none;
+    opacity: 0.6 !important;
+    cursor: not-allowed !important;
+    transform: none !important;
   }
 }
 
@@ -28,9 +28,9 @@
   @include button-variant($primary, white);
   
   &:hover:not(:disabled) {
-    background-color: $primary-dark;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba($primary, 0.3);
+    background-color: $primary-dark !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 12px rgba($primary, 0.3) !important;
   }
 }
 
